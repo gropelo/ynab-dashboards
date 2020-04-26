@@ -10,7 +10,6 @@ export const MainContainer = () => {
   const [filter, setFilter] = useState<IFilter>({ period: 'ALL_TIME', group: 'MONTH', onlyClosedMonths: true });
   const { transactions, status } = useTransactions(filter, categoryId);
 
-  if (!categoryId) return null;
   if (status === 'LOADING') return <Loading />;
   if (status === 'ERROR') return <Error />;
   return (

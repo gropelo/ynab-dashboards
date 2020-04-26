@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface IProps {
+  active: boolean;
+}
 
 export const SideNavLink = styled.div`
   color: #ffffff;
@@ -9,4 +13,7 @@ export const SideNavLink = styled.div`
   }
   padding: 8px 8px 8px 24px;
   font-size: 0.9em;
+  ${(props: IProps) => props.active && css`    
+    background-color: #28889c;
+  `}
 `;

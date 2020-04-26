@@ -13,6 +13,7 @@ export interface ITransaction {
   'payee_name': string;
   'account_name': string;
   'category_name': string;
+  'transfer_account_id': string;
 }
 
 export interface IGroupValue {

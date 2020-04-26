@@ -39,10 +39,19 @@ export const useTransactions = (filter: IFilter, categoryId: string | undefined)
   const [filteredTransactions, setFilteredTransactions] = useState<ITransaction[]>([]);
 
   useEffect(() => {
-    if (!categoryId) return;
+    if (!categoryId) {
+      Axios.get<ITransactionsResponse>(`/v1/budgets/default/transactions`).then(({ data }) => {
+        setTransactions(data.data.transactions.filter(t => !t.deleted && t.amount < 0 && !t.transfer_account_id).map(t => ({...t, amount: Math.abs(t.amount / 1000)})));
+        setStatus('OK');
+      }).catch(err => {
+        console.error('Cannot load transactions', err);
+        setStatus('ERROR');
+      });
+      return;
+    }
     
     Axios.get<ITransactionsResponse>(`/v1/budgets/default/categories/${categoryId}/transactions`).then(({ data }) => {
-      setTransactions(data.data.transactions.filter(t => !t.deleted && t.amount < 0).map(t => ({...t, amount: Math.abs(t.amount / 1000)})));
+      setTransactions(data.data.transactions.filter(t => !t.deleted && t.amount < 0 && !t.transfer_account_id).map(t => ({...t, amount: Math.abs(t.amount / 1000)})));
       setStatus('OK');
     }).catch(err => {
       console.error('Cannot load transactions', err);
@@ -51,7 +60,10 @@ export const useTransactions = (filter: IFilter, categoryId: string | undefined)
   }, [categoryId]);
 
   useEffect(() => {
-    setFilteredTransactions(filtrar(transactions, filter));
+    setFilteredTransactions(
+      filtrar(transactions, filter)
+        .sort((t1, t2) => t1.date > t2.date ? -1 : 1)
+    );
   }, [transactions, filter]);
 
   return { transactions: filteredTransactions, status };

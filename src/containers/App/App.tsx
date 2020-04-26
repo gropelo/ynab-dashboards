@@ -9,6 +9,7 @@ export const App = () => (
     <BrowserRouter>
       <SideNavContainer />
       <Switch>
+        <Route path="/" exact component={MainContainer} />
         <Route path="/categories/:categoryId" component={MainContainer} />
       </Switch>
     </BrowserRouter>
