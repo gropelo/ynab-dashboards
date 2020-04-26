@@ -1,17 +1,10 @@
 import React from 'react';
-import { SideNavContainer, MainContainer } from './containers';
-import styled from 'styled-components';
+import { SideNavContainer } from '../SideNav';
+import { MainContainer } from '../Main';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { GridContainer } from './styled';
 
-export const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  grid-template-areas:
-    "sidenav main";
-  height: 100vh;
-`;
-
-const App = () => (
+export const App = () => (
   <GridContainer>
     <BrowserRouter>
       <SideNavContainer />
@@ -21,5 +14,3 @@ const App = () => (
     </BrowserRouter>
   </GridContainer>
 );
-
-export default App;
