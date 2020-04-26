@@ -13,6 +13,6 @@ export const SideNavTitle = styled.div`
   margin-top: 5px;
 `;
 
-export const SidebarDivisor = styled.div`
+export const SideNavDivisor = styled.div`
   border-bottom 1px solid rgba(0, 0, 0, 0.15);
 `;

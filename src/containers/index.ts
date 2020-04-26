@@ -1,4 +1,4 @@
-import { SideNavContainer } from './SideNavContainer';
-import { MainContainer } from './MainContainer';
+import { SideNavContainer } from './SideNav';
+import { MainContainer } from './Main';
 
 export { SideNavContainer, MainContainer};

@@ -1,10 +1,10 @@
-import { ITransaction, IFilter } from "../types";
+import { ITransaction, FilterGroupType } from "../types";
 import { useState, useEffect } from "react";
 import { useSumByPeriod } from "./useSumByPeriod";
 
-export const useMin = (transactions: ITransaction[], filter: IFilter) => {
+export const useMin = (transactions: ITransaction[], group: FilterGroupType) => {
   const [min, setMin] = useState(0);
-  const months = useSumByPeriod(transactions, filter);
+  const months = useSumByPeriod(transactions, group);
 
   useEffect(() => {
     if (months.length > 0) {

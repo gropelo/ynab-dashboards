@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useTransactions } from '../hooks';
-import { Loading, Error, Filter, Insights, Charts, TransactionsList } from '../components';
+import { useTransactions } from '../../hooks';
+import { Loading, Error, Filter, Insights, Charts, TransactionsList } from '../../components';
 import { useParams } from 'react-router-dom'; 
 import { Main } from './styled';
-import { IFilter } from '../types';
+import { IFilter } from '../../types';
 
 export const MainContainer = () => {
   const { categoryId } = useParams();
@@ -16,8 +16,8 @@ export const MainContainer = () => {
   return (
     <Main>
       <Filter filter={filter} setFilter={setFilter} />
-      <Insights transactions={transactions} filter={filter} />
-      <Charts transactions={transactions} filter={filter} />
+      <Insights transactions={transactions} group={filter.group} />
+      <Charts transactions={transactions} group={filter.group} />
       <TransactionsList transactions={transactions} />
     </Main>
   )

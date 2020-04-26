@@ -1,18 +1,18 @@
 import React from 'react';
-import { ITransaction, IFilter } from '../../types';
+import { ITransaction, FilterGroupType } from '../../types';
 import { Grid } from './styled';
 import { useAvg, useSum, useMax, useMin } from '../../hooks';
 import { Card } from '../Card';
 
 interface IProps {
   transactions: ITransaction[],
-  filter: IFilter
+  group: FilterGroupType
 }
 
-export const Insights = ({transactions, filter} : IProps) => {
-  const avg = useAvg(transactions, filter);
-  const max = useMax(transactions, filter);
-  const min = useMin(transactions, filter);
+export const Insights = ({transactions, group} : IProps) => {
+  const avg = useAvg(transactions, group);
+  const max = useMax(transactions, group);
+  const min = useMin(transactions, group);
   const sum = useSum(transactions);
 
   return (

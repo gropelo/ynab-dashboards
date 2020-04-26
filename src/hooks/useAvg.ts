@@ -1,10 +1,10 @@
-import { ITransaction, IFilter } from "../types";
+import { ITransaction, FilterGroupType } from "../types";
 import { useState, useEffect } from "react";
 import { useSumByPeriod } from "./useSumByPeriod";
 
-export const useAvg = (transactions: ITransaction[], filter: IFilter) => {
+export const useAvg = (transactions: ITransaction[], group: FilterGroupType) => {
   const [avg, setAvg] = useState(0);
-  const months = useSumByPeriod(transactions, filter);
+  const months = useSumByPeriod(transactions, group);
 
   useEffect(() => {
     if (months.length > 0) {
