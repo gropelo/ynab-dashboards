@@ -1,17 +1,17 @@
 import React from 'react';
-import { IMonthValue } from '../../../types';
+import { IGroupValue } from '../../types';
 import { Card } from './styled';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface IProps {
-  months: IMonthValue[];
+  groups: IGroupValue[];
 }
 
-export const TimeLineChart = ({months}: IProps) => (
+export const TimeLineChart = ({groups}: IProps) => (
   <Card>
     <ResponsiveContainer width='100%' height='100%'>
-      <AreaChart data={months}>
-        <XAxis dataKey="month" />
+      <AreaChart data={groups}>
+        <XAxis dataKey="group" />
         <YAxis />
         <Tooltip />
         <Area type="monotone" dataKey="amount" />

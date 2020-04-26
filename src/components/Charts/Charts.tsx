@@ -1,21 +1,22 @@
 import React from 'react';
-import { ITransaction } from '../../../types';
+import { ITransaction, IFilter } from '../../types';
 import { Grid } from './styled';
-import { useSumByMonth, useSumByAccount } from '../../../hooks';
+import { useSumByPeriod, useSumByAccount } from '../../hooks';
 import { TimeLineChart } from '../TimeLineChart';
 import { AccountsChart } from '../AccountsChart';
 
 interface IProps {
   transactions: ITransaction[];
+  filter: IFilter;
 }
 
-export const Charts = ({transactions}: IProps) => {
-  const months = useSumByMonth(transactions);
+export const Charts = ({transactions, filter}: IProps) => {
+  const groups = useSumByPeriod(transactions, filter);
   const accounts = useSumByAccount(transactions);
   
   return (
     <Grid>
-      <TimeLineChart months={months} />
+      <TimeLineChart groups={groups} />
       <AccountsChart accounts={accounts} />
     </Grid>
   )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IAccountValue } from '../../../types';
+import { IAccountValue } from '../../types';
 import { Card } from './styled';
 import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
@@ -15,7 +15,7 @@ export const AccountsChart = ({accounts}: IProps) => (
       <PieChart>
         <Pie data={accounts} dataKey="amount" nameKey="account" label={(entry) => entry.name}>
           {
-          	accounts.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+          	accounts.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
           }
         </Pie>
         <Tooltip />

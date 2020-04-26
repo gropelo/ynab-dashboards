@@ -1,5 +1,5 @@
 import React from 'react';
-import { ITransaction } from '../../../types';
+import { ITransaction } from '../../types';
 import { RightAlignedColumn, LeftAlignedColumn, Row } from './styled';
 
 interface IProps {

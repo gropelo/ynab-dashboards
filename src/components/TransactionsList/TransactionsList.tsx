@@ -1,5 +1,5 @@
 import React from 'react';
-import { ITransaction } from '../../../types';
+import { ITransaction } from '../../types';
 import { Table, Body } from './styled';
 import { TransactionsListHeader } from '../TransactionsListHeader';
 import { TransactionsListRow } from '../TransactionsListRow';

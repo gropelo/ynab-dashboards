@@ -1,10 +1,10 @@
-import { useAvgTicket } from './useAvgTicket';
+import { useAvg } from './useAvg';
 import { useSum } from './useSum';
 import { useCategories } from './useCategories';
 import { useTransactions } from './useTransactions';
 import { useMax } from './useMax';
 import { useMin } from './useMin';
-import { useSumByMonth } from './useSumByMonth';
+import { useSumByPeriod } from './useSumByPeriod';
 import { useSumByAccount } from './useSumByAccount';
 
-export { useAvgTicket, useCategories, useSum, useTransactions, useMax, useMin, useSumByMonth, useSumByAccount };
+export { useAvg, useCategories, useSum, useTransactions, useMax, useMin, useSumByPeriod, useSumByAccount };
