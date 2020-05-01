@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCategories } from '../../hooks';
 import { Loading, Error, Signout, CategoriesList } from '../../components';
-import { SideNav, SideNavTitle, SideNavDivisor } from './styled';
+import { SideNav, SideNavTitle, SideNavDivisor } from './styles';
 
 export const SideNavContainer = () => {
   const { categories, status } = useCategories();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ITransaction, FilterGroupType } from '../../types';
-import { Grid } from './styled';
+import { Grid } from './styles';
 import { useSumByPeriod, useSumByAccount } from '../../hooks';
 import { TimeLineChart } from '../TimeLineChart';
 import { AccountsChart } from '../AccountsChart';

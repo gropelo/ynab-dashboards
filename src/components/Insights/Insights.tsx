@@ -1,6 +1,6 @@
 import React from 'react';
 import { ITransaction, FilterGroupType } from '../../types';
-import { Grid } from './styled';
+import { Grid } from './styles';
 import { useAvg, useSum, useMax, useMin } from '../../hooks';
 import { Card } from '../Card';
 

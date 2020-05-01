@@ -1,5 +1,5 @@
 import React from 'react';
-import { SideNavLink } from './styled';
+import { SideNavLink } from './styles';
 import { ICategory } from '../../types';
 import { useHistory, useLocation } from 'react-router-dom';
 

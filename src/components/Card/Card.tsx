@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card as StyledCard, CardItem, CardTitle, CardSubTitle,CardValue } from './styled';
+import { Card as StyledCard, CardItem, CardTitle, CardSubTitle,CardValue } from './styles';
 
 interface IProps {
   label: string;

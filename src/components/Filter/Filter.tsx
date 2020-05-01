@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, InlineDiv } from './styled';
+import { Bar, InlineDiv } from './styles';
 import { IFilter, FilterPeriodType, FilterGroupType } from '../../types';
 
 interface IProps {

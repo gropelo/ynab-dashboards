@@ -1,6 +1,6 @@
 import React from 'react';
 import { IGroupValue } from '../../types';
-import { Card } from './styled';
+import { Card } from './styles';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface IProps {

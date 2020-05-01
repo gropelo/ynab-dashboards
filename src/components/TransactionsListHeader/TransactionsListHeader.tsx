@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderColumn, LargeHeaderColumn, SmallHeaderColumn, Head, Row } from './styled';
+import { HeaderColumn, LargeHeaderColumn, SmallHeaderColumn, Head, Row } from './styles';
 
 export const TransactionsListHeader = () => (
   <Head>

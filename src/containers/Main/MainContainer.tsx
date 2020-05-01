@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTransactions } from '../../hooks';
 import { Loading, Error, Filter, Insights, Charts, TransactionsList } from '../../components';
 import { useParams } from 'react-router-dom'; 
-import { Main } from './styled';
+import { Main } from './styles';
 import { IFilter } from '../../types';
 
 export const MainContainer = () => {
