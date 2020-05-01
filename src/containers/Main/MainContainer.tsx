@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTransactions } from '../../hooks';
 import { Loading, Error, Filter, Insights, Charts, TransactionsList } from '../../components';
 import { useParams } from 'react-router-dom'; 
@@ -7,8 +7,12 @@ import { IFilter } from '../../types';
 
 export const MainContainer = () => {
   const { categoryId } = useParams();
-  const [filter, setFilter] = useState<IFilter>({ period: 'ALL_TIME', group: 'MONTH', onlyClosedMonths: true });
-  const { transactions, status } = useTransactions(filter, categoryId);
+  const [filter, setFilter] = useState<IFilter>({ period: 'THIS_YEAR', group: 'MONTH', onlyClosedMonths: true, categoryId });
+  const { transactions, status } = useTransactions(filter);
+
+  useEffect(() => {
+    categoryId !== filter.categoryId &&  setFilter({...filter, categoryId});
+  }, [filter, categoryId]);
 
   if (status === 'LOADING') return <Loading />;
   if (status === 'ERROR') return <Error />;

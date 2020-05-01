@@ -13,6 +13,7 @@ export interface ITransaction {
   'payee_name': string;
   'account_name': string;
   'category_name': string;
+  'category_id': string;
   'transfer_account_id': string;
 }
 
@@ -34,4 +35,5 @@ export interface IFilter {
   period: FilterPeriodType;
   group: FilterGroupType;
   onlyClosedMonths: boolean;
+  categoryId: string | undefined;
 }

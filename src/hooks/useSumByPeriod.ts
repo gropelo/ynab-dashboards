@@ -20,6 +20,7 @@ export const useSumByPeriod = (transactions: ITransaction[], group: FilterGroupT
             
             return groupedValues;
           }, [])
+          .sort((t1, t2) => t1.group > t2.group ? 1 : -1)
       );
     } else {
       setMonths([]);

@@ -1,14 +1,20 @@
 import React from 'react';
-import { Card as StyledCard, CardItem } from './styled';
+import { Card as StyledCard, CardItem, CardTitle, CardSubTitle,CardValue } from './styled';
 
 interface IProps {
   label: string;
   amount: number;
+  info?: string;
 }
 
-export const Card = ({ label, amount } : IProps) => (
+export const Card = ({ label, amount, info } : IProps) => (
   <StyledCard>
-    <CardItem>{label}</CardItem>
-    <CardItem>{amount.toFixed(2)}</CardItem>
+    <CardItem>
+      <CardTitle>{label}</CardTitle>
+      <CardSubTitle>{info}</CardSubTitle>
+    </CardItem>
+    <CardItem>
+      <CardValue>{amount.toFixed(2)}</CardValue>
+    </CardItem>
   </StyledCard>
 );

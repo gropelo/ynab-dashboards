@@ -19,8 +19,8 @@ export const Insights = ({transactions, group} : IProps) => {
     <Grid>
       <Card label="Sum" amount={sum} />
       <Card label="Average" amount={avg} />
-      <Card label="Max" amount={max} />
-      <Card label="Min" amount={min} />
+      <Card label="Max" amount={max.amount} info={max.group} />
+      <Card label="Min" amount={min.amount} info={min.group} />
     </Grid>
   )
 };

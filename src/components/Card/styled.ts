@@ -9,3 +9,12 @@ export const Card = styled.div`
 `;
 
 export const CardItem = styled.div``;
+
+export const CardTitle = styled.div``;
+
+export const CardValue = styled.div``;
+
+export const CardSubTitle = styled.div`
+  font-size: 12px;
+  font-style: italic;
+`;
