@@ -3,16 +3,18 @@ import { ITransaction } from '../../types';
 import { Table, Body, WrappedTable } from './styles';
 import { TransactionsListHeader } from '../TransactionsListHeader';
 import { TransactionsListRow } from '../TransactionsListRow';
+import { useRecoilValue } from 'recoil';
+import { filteredTransactionsState } from '../../state';
 
-interface IProps {
-  transactions: ITransaction[];
-}
+export const TransactionsList = () => {
+  const transactions = useRecoilValue(filteredTransactionsState);
 
-export const TransactionsList = ({ transactions }: IProps) => (
-  <WrappedTable>
-    <Table>
-      <TransactionsListHeader />
-      <Body>{transactions.map(t => <TransactionsListRow key={t.id} transaction={t} />)}</Body>
-    </Table>
-  </WrappedTable>
-);
+  return (
+    <WrappedTable>
+      <Table>
+        <TransactionsListHeader />
+        <Body>{transactions?.map && transactions?.map((t: ITransaction) => <TransactionsListRow key={t.id} transaction={t} />)}</Body>
+      </Table>
+    </WrappedTable>
+  )
+};

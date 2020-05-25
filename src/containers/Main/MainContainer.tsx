@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { useTransactions } from '../../hooks';
-import { Loading, Error, Filter, Insights, Charts, TransactionsList } from '../../components';
-import { useParams } from 'react-router-dom'; 
+import React, { useEffect } from 'react';
+import { Loading, Filter, Insights, Charts, TransactionsList } from '../../components';
 import { Main } from './styles';
-import { IFilter } from '../../types';
+import { useParams } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { filterState } from '../../state';
 
 export const MainContainer = () => {
   const { categoryId } = useParams();
-  const [filter, setFilter] = useState<IFilter>({ period: 'THIS_YEAR', group: 'MONTH', onlyClosedMonths: true, categoryId });
-  const { transactions, status } = useTransactions(filter);
+  const [filter, setFilter] = useRecoilState(filterState);
 
   useEffect(() => {
-    categoryId !== filter.categoryId &&  setFilter({...filter, categoryId});
-  }, [filter, categoryId]);
-
-  if (status === 'LOADING') return <Loading />;
-  if (status === 'ERROR') return <Error />;
+    categoryId !== filter.categoryId && setFilter({...filter, categoryId});
+  }, [setFilter, filter, categoryId]);
+  
   return (
     <Main>
-      <Filter filter={filter} setFilter={setFilter} />
-      <Insights transactions={transactions} group={filter.group} />
-      <Charts transactions={transactions} group={filter.group} />
-      <TransactionsList transactions={transactions} />
+      <React.Suspense fallback={<Loading/>}>
+        <Filter />
+        <Insights />
+        <Charts />
+        <TransactionsList />
+      </React.Suspense>
     </Main>
   )
 };

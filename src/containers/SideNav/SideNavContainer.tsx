@@ -1,21 +1,18 @@
 import React from 'react';
-import { useCategories } from '../../hooks';
-import { Loading, Error, Signout, CategoriesList } from '../../components';
+import { Loading, Signout, CategoriesList } from '../../components';
 import { SideNav, SideNavTitle, SideNavDivisor } from './styles';
 
 export const SideNavContainer = () => {
-  const { categories, status } = useCategories();
-
-  if (status === 'LOADING') return <Loading />;
-  if (status === 'ERROR') return <Error />;
   return (
     <SideNav>
-      <SideNavTitle>Categories</SideNavTitle>
-      <SideNavDivisor />
-      <CategoriesList categories={categories} />
-      <SideNavDivisor />
-      <Signout />
-      <SideNavDivisor />
+      <React.Suspense fallback={<Loading/>}>
+        <SideNavTitle>Categories</SideNavTitle>
+        <SideNavDivisor />
+        <CategoriesList />
+        <SideNavDivisor />
+        <Signout />
+        <SideNavDivisor />
+      </React.Suspense>
     </SideNav>  
   );
 };
