@@ -1,10 +1,17 @@
 import { atom, selector } from 'recoil';
-import { ITransaction, ITransactionsResponse, IFilter, IGroupValue, IAccountValue, ICategoriesResponse } from '../types';
+import { ITransactionsResponse, IGroupValue, IAccountValue, ICategoriesResponse, IFilter } from '../types';
 import Axios from 'axios';
+
+const defaultFilter: IFilter = {
+  period: 'THIS_YEAR',
+  group: 'MONTH',
+  onlyClosedMonths: true,
+  categoryId: undefined
+}
 
 export const filterState = atom({
   key: 'filterState',
-  default: { period: 'THIS_YEAR', group: 'MONTH', onlyClosedMonths: true }
+  default: defaultFilter
 });
 
 export const transactionsState = selector({
@@ -17,9 +24,9 @@ export const transactionsState = selector({
 
 export const filteredTransactionsState = selector({
   key: 'filteredTransactionsState',
-  get: ({ get }: any) => {
+  get: ({ get }) => {
     const filter = get(filterState);
-    const transactions = get(transactionsState) as ITransaction[];
+    const transactions = get(transactionsState);
 
     const currentDate = new Date();
 
@@ -59,9 +66,9 @@ export const filteredTransactionsState = selector({
 
 export const sumByPeriodState = selector({
   key: 'sumByPeriod',
-  get: ({ get }: any) => {
-    const filter = get(filterState) as IFilter;
-    const transactions = get(filteredTransactionsState) as ITransaction[];
+  get: ({ get }) => {
+    const filter = get(filterState);
+    const transactions = get(filteredTransactionsState);
 
     if (transactions && transactions.length > 0) {
       return transactions
@@ -86,8 +93,8 @@ export const sumByPeriodState = selector({
 
 export const sumByAccountState = selector({
   key: 'sumByAccount',
-  get: ({ get }: any) => {
-    const transactions = get(filteredTransactionsState) as ITransaction[];
+  get: ({ get }) => {
+    const transactions = get(filteredTransactionsState);
       
     if (transactions && transactions.length > 0) {
       return transactions
@@ -111,8 +118,8 @@ export const sumByAccountState = selector({
 
 export const sumState = selector({
   key: 'sum',
-  get: ({ get }: any) => {
-    const transactions = get(filteredTransactionsState) as ITransaction[];
+  get: ({ get }) => {
+    const transactions = get(filteredTransactionsState);
 
     if (transactions && transactions.length > 0) {
       const sum = transactions.map(t => t.amount).reduce((a, b) => a + b);
@@ -125,8 +132,8 @@ export const sumState = selector({
 
 export const minState = selector({
   key: 'min',
-  get: ({ get }: any) => {
-    const periods = get(sumByPeriodState) as IGroupValue[];
+  get: ({ get }) => {
+    const periods = get(sumByPeriodState);
 
     if (periods.length > 0) {
       const sorted = [...periods].sort((a, b) => a.amount - b.amount);
@@ -139,8 +146,8 @@ export const minState = selector({
 
 export const maxState = selector({
   key: 'max',
-  get: ({ get }: any) => {
-    const periods = get(sumByPeriodState) as IGroupValue[];
+  get: ({ get }) => {
+    const periods = get(sumByPeriodState);
 
     if (periods.length > 0) {
       const sorted = [...periods].sort((a, b) => b.amount - a.amount);
@@ -153,8 +160,8 @@ export const maxState = selector({
 
 export const avgState = selector({
   key: 'avg',
-  get: ({ get }: any) => {
-    const periods = get(sumByPeriodState) as IGroupValue[];
+  get: ({ get }) => {
+    const periods = get(sumByPeriodState);
 
     if (periods.length > 0) {
       const sum = periods.map(m => m.amount).reduce((a, b) => a + b);
