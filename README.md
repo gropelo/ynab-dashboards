@@ -6,6 +6,7 @@ The target is to get some insights from your transaction history, currently only
 
 # Demo
 https://ynab-dashboards.herokuapp.com/
+- it can be slow to boot as it is using free heroku.
 
 # Install
 ``` 
