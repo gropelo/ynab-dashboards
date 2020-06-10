@@ -8,7 +8,7 @@ import { ICategory } from '../../types';
 export const CategoriesList = () => {
   const location = useLocation();
   const history = useHistory();
-  const categories = useRecoilValue(categoriesState) as ICategory[];
+  const categories = useRecoilValue(categoriesState);
   
   return (
     <>
