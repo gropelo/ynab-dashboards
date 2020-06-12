@@ -3,7 +3,6 @@ import { SideNavLink } from './styles';
 import { useRecoilValue } from 'recoil';
 import { useHistory, useLocation } from 'react-router-dom';
 import { categoriesState } from '../../state';
-import { ICategory } from '../../types';
 
 export const CategoriesList = () => {
   const location = useLocation();
