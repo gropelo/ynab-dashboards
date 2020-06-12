@@ -1,19 +1,14 @@
 import React from 'react';
-import { ITransaction, FilterGroupType } from '../../types';
 import { Grid } from './styles';
-import { useAvg, useSum, useMax, useMin } from '../../hooks';
 import { Card } from '../Card';
+import { avgState, maxState, minState, sumState } from '../../state';
+import { useRecoilValue } from 'recoil';
 
-interface IProps {
-  transactions: ITransaction[],
-  group: FilterGroupType
-}
-
-export const Insights = ({transactions, group} : IProps) => {
-  const avg = useAvg(transactions, group);
-  const max = useMax(transactions, group);
-  const min = useMin(transactions, group);
-  const sum = useSum(transactions);
+export const Insights = () => {
+  const avg = useRecoilValue(avgState);
+  const max = useRecoilValue(maxState);
+  const min = useRecoilValue(minState);
+  const sum = useRecoilValue(sumState);
 
   return (
     <Grid>

@@ -1,15 +1,14 @@
 import React from 'react';
 import { SideNavLink } from './styles';
-import { ICategory } from '../../types';
+import { useRecoilValue } from 'recoil';
 import { useHistory, useLocation } from 'react-router-dom';
+import { categoriesState } from '../../state';
+import { ICategory } from '../../types';
 
-interface IProps {
-  categories: ICategory[];
-}
-
-export const CategoriesList = ({ categories }: IProps) => {
+export const CategoriesList = () => {
   const location = useLocation();
   const history = useHistory();
+  const categories = useRecoilValue(categoriesState);
   
   return (
     <>

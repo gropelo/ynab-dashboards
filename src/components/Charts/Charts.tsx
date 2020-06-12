@@ -1,18 +1,13 @@
 import React from 'react';
-import { ITransaction, FilterGroupType } from '../../types';
 import { Grid } from './styles';
-import { useSumByPeriod, useSumByAccount } from '../../hooks';
 import { TimeLineChart } from '../TimeLineChart';
 import { AccountsChart } from '../AccountsChart';
+import { sumByPeriodState, sumByAccountState } from '../../state';
+import { useRecoilValue } from 'recoil';
 
-interface IProps {
-  transactions: ITransaction[];
-  group: FilterGroupType;
-}
-
-export const Charts = ({transactions, group}: IProps) => {
-  const groups = useSumByPeriod(transactions, group);
-  const accounts = useSumByAccount(transactions);
+export const Charts = () => {
+  const groups = useRecoilValue(sumByPeriodState);
+  const accounts = useRecoilValue(sumByAccountState);
   
   return (
     <Grid>
