@@ -1,18 +1,24 @@
 import React from 'react';
 import { Loading, Signout, CategoriesList } from '../../components';
-import { SideNav, SideNavTitle, SideNavDivisor } from './styles';
+import { Center, SideNav, SideNavTitle, SideNavDivisor } from './styles';
 
 export const SideNavContainer = () => {
   return (
     <SideNav>
-      <React.Suspense fallback={<Loading/>}>
-        <SideNavTitle>Categories</SideNavTitle>
-        <SideNavDivisor />
+      <SideNavTitle>Categories</SideNavTitle>
+      <SideNavDivisor />
+      <React.Suspense fallback={centeredLoader}>
         <CategoriesList />
         <SideNavDivisor />
         <Signout />
-        <SideNavDivisor />
       </React.Suspense>
+      <SideNavDivisor />
     </SideNav>  
   );
 };
+
+const centeredLoader = (
+  <Center>
+    <Loading />
+  </Center>
+);

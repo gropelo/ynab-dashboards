@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Loading, Filter, Insights, Charts, TransactionsList } from '../../components';
-import { Main } from './styles';
+import { Main, ScreenCenter } from './styles';
 import { useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { filterState } from '../../state';
@@ -14,13 +14,19 @@ export const MainContainer = () => {
   }, [setFilter, filter, categoryId]);
   
   return (
-    <Main>
-      <React.Suspense fallback={<Loading/>}>
+    <React.Suspense fallback={centeredLoading}>
+      <Main>
         <Filter />
         <Insights />
         <Charts />
         <TransactionsList />
-      </React.Suspense>
-    </Main>
+      </Main>
+    </React.Suspense>
   )
 };
+
+const centeredLoading = (
+  <ScreenCenter>
+    <Loading/>
+  </ScreenCenter>
+);

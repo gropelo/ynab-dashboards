@@ -1,6 +1,15 @@
 import React from 'react';
-import { Alert } from './styles';
+import { StyledSpinner } from './styles';
 
 export const Loading = () => (
-  <Alert>Loading...</Alert>
+  <StyledSpinner>
+    <circle
+      className="path"
+      cx="25"
+      cy="25"
+      r="20"
+      fill="none"
+      strokeWidth="4"
+    />
+  </StyledSpinner>
 );
