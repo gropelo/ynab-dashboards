@@ -1,5 +1,5 @@
-import Axios from "axios";
-import { ICategoriesResponse, ITransactionsResponse } from "../types";
+import Axios from 'axios';
+import { ICategoriesResponse, ITransactionsResponse } from '../types';
 
 export async function fetchCategories() {
   const response = await Axios.get<ICategoriesResponse>('/v1/budgets/default/categories');
