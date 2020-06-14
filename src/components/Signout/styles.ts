@@ -9,4 +9,6 @@ export const SideNavLink = styled.div`
   }
   padding: 8px 8px 8px 24px;
   font-size: 0.9em;
+  border-top 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom 1px solid rgba(0, 0, 0, 0.15);
 `;

@@ -1,11 +1,16 @@
 import React from 'react';
 import { Bar, InlineDiv } from './styles';
-import { FilterPeriodType, FilterGroupType } from '../../types';
-import { filterState } from '../../state';
-import { useRecoilState } from 'recoil';
+import { FilterPeriodType, FilterGroupType, IFilter } from '../../types';
+import { useRootState, useDispatch } from '../../hooks';
 
 export const Filter = () => {
-  const [filter, setFilter] = useRecoilState(filterState);
+  const dispatch = useDispatch();
+  
+  const setFilter = (filter: IFilter) => {
+    dispatch({ type: 'SET_FILTER', payload: filter});
+  }
+  
+  const { filter } = useRootState();
 
   return (
     <Bar>

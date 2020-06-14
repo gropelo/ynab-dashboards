@@ -3,10 +3,10 @@ import { SideNavContainer } from '../SideNav';
 import { MainContainer } from '../Main';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { GridContainer } from './styles';
-import { RecoilRoot } from 'recoil';
+import { StateProvider } from '../../state';
 
 export const App = () => (
-  <RecoilRoot>
+  <StateProvider>
     <GridContainer>
       <BrowserRouter>
         <SideNavContainer />
@@ -16,5 +16,5 @@ export const App = () => (
         </Switch>
       </BrowserRouter>
     </GridContainer>
-  </RecoilRoot>
+  </StateProvider>
 );

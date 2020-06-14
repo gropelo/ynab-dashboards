@@ -2,31 +2,37 @@ import React, { useEffect } from 'react';
 import { Loading, Filter, Insights, Charts, TransactionsList } from '../../components';
 import { Main, ScreenCenter } from './styles';
 import { useParams } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import { filterState } from '../../state';
+import { useDispatch, useRootState } from '../../hooks';
+import { fetchCategories } from '../../services/ynab.service';
 
 export const MainContainer = () => {
+  const dispatch = useDispatch();
   const { categoryId } = useParams();
-  const [filter, setFilter] = useRecoilState(filterState);
+  const { filter, statusTransactions } = useRootState();
 
   useEffect(() => {
-    categoryId !== filter.categoryId && setFilter({...filter, categoryId});
-  }, [setFilter, filter, categoryId]);
+    fetchCategories()
+      .then(categories => dispatch({ type: 'SET_CATEGORIES', payload: categories }));
+  }, [dispatch]);
+
+  useEffect(() => {
+    categoryId !== filter.categoryId && dispatch({ type: 'SET_FILTER', payload: {...filter, categoryId}});
+  }, [dispatch, filter, categoryId]);
+
+  if (statusTransactions === 'LOADING') {
+    return (
+      <ScreenCenter>
+        <Loading/>
+      </ScreenCenter>
+    );
+  }
   
   return (
-    <React.Suspense fallback={centeredLoading}>
-      <Main>
-        <Filter />
-        <Insights />
-        <Charts />
-        <TransactionsList />
-      </Main>
-    </React.Suspense>
+    <Main>
+      <Filter />
+      <Insights />
+      <Charts />
+      <TransactionsList />
+    </Main>
   )
 };
-
-const centeredLoading = (
-  <ScreenCenter>
-    <Loading/>
-  </ScreenCenter>
-);

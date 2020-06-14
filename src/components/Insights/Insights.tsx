@@ -1,14 +1,13 @@
 import React from 'react';
 import { Grid } from './styles';
 import { Card } from '../Card';
-import { avgState, maxState, minState, sumState } from '../../state';
-import { useRecoilValue } from 'recoil';
+import { useAvg, useMax, useMin, useSum } from '../../hooks';
 
 export const Insights = () => {
-  const avg = useRecoilValue(avgState);
-  const max = useRecoilValue(maxState);
-  const min = useRecoilValue(minState);
-  const sum = useRecoilValue(sumState);
+  const avg = useAvg();
+  const max = useMax();
+  const min = useMin();
+  const sum = useSum();
 
   return (
     <Grid>
