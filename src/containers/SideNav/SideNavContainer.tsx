@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Loading, Signout, CategoriesList } from 'components';
-import { useDispatch, useRootState } from 'hooks';
+import { useDispatch, useRootState, useErrorBoundary } from 'hooks';
 import { fetchTransactions } from 'services/ynab.service';
 import { Center, SideNav, SideNavTitle } from './styles';
 
 export const SideNavContainer = () => {
   const dispatch = useDispatch();
-  
-  const [/* state */, setState] = useState();
+  const setErrorBoundary = useErrorBoundary();
 
   useEffect(() => {
     fetchTransactions()
       .then(transactions => dispatch({ type: 'SET_TRANSACTIONS', payload: transactions }))
-      .catch(err => {
-        setState(() => {
-          throw new Error(err);
-        });
-      });
-  }, [dispatch]);
+      .catch(setErrorBoundary);
+  }, [dispatch, setErrorBoundary]);
   
   const { categories, statusCategories } = useRootState();
 

@@ -6,3 +6,4 @@ export * from './useTransactionsByAccount';
 export * from './useTransactionsByPeriod';
 export * from './useRootState';
 export * from './useDispatch';
+export * from './useErrorBoundary';

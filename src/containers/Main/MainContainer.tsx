@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loading, Filter, Insights, Charts, TransactionsList } from 'components';
-import { useDispatch, useRootState } from 'hooks';
+import { useDispatch, useRootState, useErrorBoundary } from 'hooks';
 import { fetchCategories } from 'services/ynab.service';
 import { Main, ScreenCenter } from './styles';
 
@@ -9,17 +9,13 @@ export const MainContainer = () => {
   const dispatch = useDispatch();
   const { categoryId } = useParams();
   const { filter, statusTransactions } = useRootState();
-  const [/* state */, setState] = useState();
+  const setErrorBoundary = useErrorBoundary();
 
   useEffect(() => {
     fetchCategories()
       .then(categories => dispatch({ type: 'SET_CATEGORIES', payload: categories }))
-      .catch(err => {
-        setState(() => {
-          throw new Error(err);
-        });
-      });
-  }, [dispatch]);
+      .catch(setErrorBoundary);
+  }, [dispatch, setErrorBoundary]);
 
   useEffect(() => {
     categoryId !== filter.categoryId && dispatch({ type: 'SET_FILTER', payload: {...filter, categoryId}});
