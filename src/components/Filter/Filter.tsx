@@ -24,7 +24,7 @@ export const Filter = () => {
         <select value={filter.group}
           onChange={(e) => setFilter({ ...filter, group: e.target.value as FilterGroupType })}>
           <option value={'MONTH'}>Group by Month</option>
-          <option value={'YEAR'}>Group by Year</option>
+          {filter.period === 'ALL_TIME' && <option value={'YEAR'}>Group by Year</option>}
         </select>
       </InlineDiv>
       <InlineDiv>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { IAction, IRootState } from 'types/commons.types';
 import { filterTransactionsService } from 'services/filterTransactions.service';
+import { setFilterService } from 'services/setFilter.service';
 
 export const initialState: IRootState = {
   filter: {
@@ -34,7 +35,7 @@ export function rootReducer(state = initialState, action: IAction): IRootState {
     case 'SET_FILTER':
       return {
         ...state,
-        filter: action.payload,
+        filter: setFilterService(action.payload),
         filteredTransactions: filterTransactionsService(state.rawTransactions, action.payload)
       }
     default:
