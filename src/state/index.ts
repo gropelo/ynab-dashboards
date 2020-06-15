@@ -1,2 +1,3 @@
-export * from './rootstate';
+export * from './reducer';
 export * from './StateProvider';
+export * from './actions';

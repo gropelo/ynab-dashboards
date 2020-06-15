@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loading, Filter, Insights, Charts, TransactionsList } from 'components';
 import { useDispatch, useRootState, useErrorBoundary } from 'hooks';
+import { dispatchCategories, dispatchFilter } from 'state';
 import { fetchCategories } from 'services/ynab.service';
 import { Main, ScreenCenter } from './styles';
 
@@ -13,12 +14,12 @@ export const MainContainer = () => {
 
   useEffect(() => {
     fetchCategories()
-      .then(categories => dispatch({ type: 'SET_CATEGORIES', payload: categories }))
+      .then(categories => dispatchCategories(categories, dispatch))
       .catch(setErrorBoundary);
   }, [dispatch, setErrorBoundary]);
 
   useEffect(() => {
-    categoryId !== filter.categoryId && dispatch({ type: 'SET_FILTER', payload: {...filter, categoryId}});
+    categoryId !== filter.categoryId && dispatchFilter({...filter, categoryId}, dispatch);
   }, [dispatch, filter, categoryId]);
 
   if (statusTransactions === 'LOADING') {

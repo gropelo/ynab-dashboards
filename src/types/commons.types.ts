@@ -10,6 +10,8 @@ export interface IAction {
   payload: any;
 }
 
+export type IDispatch = (action: IAction) => void;
+
 export interface IRootState {
   filter: IFilter;
   rawTransactions: ITransaction[];

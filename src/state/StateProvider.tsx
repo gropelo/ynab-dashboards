@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import { rootReducer, initialState, rootContext } from './rootstate';
+import { rootReducer, initialState, rootContext } from './reducer';
 
 interface IProps {
   children: JSX.Element[] | JSX.Element;

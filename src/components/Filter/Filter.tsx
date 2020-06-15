@@ -1,16 +1,14 @@
 import React from 'react';
 import { FilterPeriodType, FilterGroupType, IFilter } from 'types';
 import { useRootState, useDispatch } from 'hooks';
+import { dispatchFilter } from 'state';
 import { Bar, InlineDiv } from './styles';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  
-  const setFilter = (filter: IFilter) => {
-    dispatch({ type: 'SET_FILTER', payload: filter});
-  }
-  
   const { filter } = useRootState();
+  
+  const setFilter = (filter: IFilter) => dispatchFilter(filter, dispatch);
 
   return (
     <Bar>
