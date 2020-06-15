@@ -1,4 +1,4 @@
-import { IGroupValue, IFilter, ITransaction } from '../types';
+import { IGroupValue, IFilter, ITransaction } from 'types';
 
 export function sumByPeriodService(transactions: ITransaction[], filter: IFilter) {
   const groupedTransactions = groupTransactions(transactions, filter);

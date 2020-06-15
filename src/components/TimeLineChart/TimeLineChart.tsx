@@ -1,7 +1,7 @@
 import React from 'react';
-import { IGroupValue } from '../../types';
-import { Card } from './styles';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { IGroupValue } from 'types';
+import { Card } from './styles';
 
 interface IProps {
   groups: IGroupValue[];

@@ -1,6 +1,6 @@
 import React from 'react'
-import { IAction, IRootState } from '../types/commons.types';
-import { filterTransactionsService } from '../services/filterTransactions.service';
+import { IAction, IRootState } from 'types/commons.types';
+import { filterTransactionsService } from 'services/filterTransactions.service';
 
 export const initialState: IRootState = {
   filter: {

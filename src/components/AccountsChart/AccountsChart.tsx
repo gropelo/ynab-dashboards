@@ -1,7 +1,7 @@
 import React from 'react';
-import { IAccountValue } from '../../types';
-import { Card } from './styles';
 import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { IAccountValue } from 'types';
+import { Card } from './styles';
 
 interface IProps {
   accounts: IAccountValue[];

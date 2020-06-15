@@ -1,7 +1,7 @@
-import { useRootState } from "./useRootState";
 import { useState, useEffect } from "react";
-import { IGroupValue } from "../types";
-import { sumByPeriodService } from "../services/sumByPeriod.service";
+import { IGroupValue } from "types";
+import { sumByPeriodService } from "services/sumByPeriod.service";
+import { useRootState } from "./useRootState";
 
 export function useTransactionsByPeriod() {
   const { filteredTransactions, filter } = useRootState();

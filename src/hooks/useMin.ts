@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { getMinValueService } from "services/getMinValue.service";
+import { IGroupValue } from "types";
 import { useTransactionsByPeriod } from "./useTransactionsByPeriod";
-import { getMinValueService } from "../services/getMinValue.service";
-import { IGroupValue } from "../types";
 
 export function useMin() {
   const periods = useTransactionsByPeriod();

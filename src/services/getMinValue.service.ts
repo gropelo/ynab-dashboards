@@ -1,4 +1,4 @@
-import { IGroupValue } from "../types";
+import { IGroupValue } from "types";
 
 export function getMinValueService(periods: IGroupValue[]) {
   if (periods.length > 0) {

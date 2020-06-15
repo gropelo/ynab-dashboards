@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAvgValueService } from "../services/getAvgValue.service";
+import { getAvgValueService } from "services/getAvgValue.service";
 import { useTransactionsByPeriod } from "./useTransactionsByPeriod";
 
 export function useAvg() {

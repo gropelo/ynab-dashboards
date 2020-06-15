@@ -1,6 +1,6 @@
 import { useRootState } from "./useRootState";
 import { useState, useEffect } from "react";
-import { sumTransactionsService } from "../services/sumTransactions.service";
+import { sumTransactionsService } from "services/sumTransactions.service";
 
 export function useSum() {
   const { filteredTransactions } = useRootState();

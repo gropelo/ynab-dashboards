@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid } from './styles';
+import { useAvg, useMax, useMin, useSum } from 'hooks';
 import { Card } from '../Card';
-import { useAvg, useMax, useMin, useSum } from '../../hooks';
+import { Grid } from './styles';
 
 export const Insights = () => {
   const avg = useAvg();

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Loading, Filter, Insights, Charts, TransactionsList } from '../../components';
-import { Main, ScreenCenter } from './styles';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useRootState } from '../../hooks';
-import { fetchCategories } from '../../services/ynab.service';
+import { Loading, Filter, Insights, Charts, TransactionsList } from 'components';
+import { useDispatch, useRootState } from 'hooks';
+import { fetchCategories } from 'services/ynab.service';
+import { Main, ScreenCenter } from './styles';
 
 export const MainContainer = () => {
   const dispatch = useDispatch();

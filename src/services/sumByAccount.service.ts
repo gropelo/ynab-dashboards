@@ -1,4 +1,4 @@
-import { ITransaction, IAccountValue } from "../types";
+import { ITransaction, IAccountValue } from "types";
 
 export function sumByAccountService(transactions: ITransaction[]) {
   return transactions

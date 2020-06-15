@@ -1,1 +1,3 @@
-export { App } from './App';
+export * from './App';
+export * from './Main';
+export * from './SideNav';

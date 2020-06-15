@@ -1,4 +1,4 @@
-import { ITransaction, IFilter } from "../types";
+import { ITransaction, IFilter } from "types";
 
 export function filterTransactionsService(transactions: ITransaction[], filter: IFilter) {
   const currentDate = new Date();

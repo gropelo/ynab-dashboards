@@ -1,7 +1,7 @@
 import React from 'react';
 import { SideNavLink } from './styles';
 import { useHistory, useLocation } from 'react-router-dom';
-import { ICategory } from '../../types';
+import { ICategory } from 'types';
 
 interface IProps {
   categories: ICategory[];

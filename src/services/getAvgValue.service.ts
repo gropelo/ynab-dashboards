@@ -1,4 +1,4 @@
-import { IGroupValue } from "../types";
+import { IGroupValue } from "types";
 
 export function getAvgValueService(periods: IGroupValue[]) {
   if (periods.length > 0) {

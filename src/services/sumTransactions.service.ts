@@ -1,4 +1,4 @@
-import { ITransaction } from "../types";
+import { ITransaction } from "types";
 
 export function sumTransactionsService(transactions: ITransaction[]) {
   if (transactions && transactions.length > 0) {

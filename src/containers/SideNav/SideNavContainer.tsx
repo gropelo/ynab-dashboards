@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Loading, Signout, CategoriesList } from '../../components';
+import { Loading, Signout, CategoriesList } from 'components';
+import { useDispatch, useRootState } from 'hooks';
+import { fetchTransactions } from 'services/ynab.service';
 import { Center, SideNav, SideNavTitle } from './styles';
-import { fetchTransactions } from '../../services/ynab.service';
-import { useDispatch, useRootState } from '../../hooks';
 
 export const SideNavContainer = () => {
   const dispatch = useDispatch();

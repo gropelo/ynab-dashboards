@@ -1,9 +1,9 @@
 import React from 'react';
-import { ITransaction } from '../../types';
-import { Table, Body, WrappedTable } from './styles';
-import { TransactionsListHeader } from '../TransactionsListHeader';
+import { ITransaction } from 'types';
+import { useRootState } from 'hooks';
 import { TransactionsListRow } from '../TransactionsListRow';
-import { useRootState } from '../../hooks';
+import { TransactionsListHeader } from '../TransactionsListHeader';
+import { Table, Body, WrappedTable } from './styles';
 
 export const TransactionsList = () => {
   const { filteredTransactions } = useRootState();

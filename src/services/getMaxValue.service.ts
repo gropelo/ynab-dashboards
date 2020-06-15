@@ -1,4 +1,4 @@
-import { IGroupValue } from "../types";
+import { IGroupValue } from "types";
 
 export function getMaxValueService(periods: IGroupValue[]) {
   if (periods.length > 0) {

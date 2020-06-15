@@ -1,7 +1,7 @@
 import React from 'react';
+import { FilterPeriodType, FilterGroupType, IFilter } from 'types';
+import { useRootState, useDispatch } from 'hooks';
 import { Bar, InlineDiv } from './styles';
-import { FilterPeriodType, FilterGroupType, IFilter } from '../../types';
-import { useRootState, useDispatch } from '../../hooks';
 
 export const Filter = () => {
   const dispatch = useDispatch();

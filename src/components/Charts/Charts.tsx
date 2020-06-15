@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid } from './styles';
+import { useTransactionsByPeriod, useTransactionsByAccount } from 'hooks';
 import { TimeLineChart } from '../TimeLineChart';
 import { AccountsChart } from '../AccountsChart';
-import { useTransactionsByPeriod, useTransactionsByAccount } from '../../hooks';
+import { Grid } from './styles';
 
 export const Charts = () => {
   const groups = useTransactionsByPeriod();
