@@ -5,8 +5,7 @@ It doesn't store any data, it's only a web client application.
 The target is to get some insights from your transaction history, currently only outflow transactions are considered.
 
 # Demo
-https://ynab-dashboards.herokuapp.com/
-- it can be slow to boot as it is using free heroku.
+https://ynab-dashboards.netlify.app/
 
 # Install
 ``` 
