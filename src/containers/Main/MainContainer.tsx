@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { Loading, Filter, Insights, Charts, TransactionsList } from 'components';
 import { useDispatch, useRootState, useErrorBoundary } from 'hooks';
-import { dispatchCategories, dispatchFilter } from 'state';
-import { fetchCategories } from 'services/ynab.service';
+import { dispatchTransactions, dispatchFilter } from 'state';
+import { fetchTransactions } from 'services/ynab.service';
 import { Main, ScreenCenter } from './styles';
+import { useParams } from 'react-router-dom';
 
 export const MainContainer = () => {
   const dispatch = useDispatch();
-  const { categoryId } = useParams();
-  const { filter, statusTransactions } = useRootState();
   const setErrorBoundary = useErrorBoundary();
+  const { filter, statusTransactions } = useRootState();
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    fetchCategories()
-      .then(categories => dispatchCategories(categories, dispatch))
+    categoryId !== filter.categoryId && dispatchFilter({ ...filter, categoryId }, dispatch);
+  }, [dispatch, filter, categoryId]);
+
+  useEffect(() => {
+    fetchTransactions()
+      .then(transactions => dispatchTransactions(transactions, dispatch))
       .catch(setErrorBoundary);
   }, [dispatch, setErrorBoundary]);
-
-  useEffect(() => {
-    categoryId !== filter.categoryId && dispatchFilter({...filter, categoryId}, dispatch);
-  }, [dispatch, filter, categoryId]);
 
   if (statusTransactions === 'LOADING') {
     return (
