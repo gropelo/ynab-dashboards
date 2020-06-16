@@ -7,6 +7,8 @@ The target is to get some insights from your transaction history, currently only
 # Demo
 https://ynab-dashboards.netlify.app/
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a1936082-6f7d-4d0e-9c61-c34fc5ef4e65/deploy-status)](https://app.netlify.com/sites/ynab-dashboards/deploys)
+
 # Install
 ``` 
 yarn
