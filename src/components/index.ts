@@ -6,3 +6,4 @@ export { TransactionsList } from './TransactionsList';
 export { Error } from './Error';
 export { Loading } from './Loading';
 export { CategoriesList } from './CategoriesList';
+export { NotFound } from './NotFound';
