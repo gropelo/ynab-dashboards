@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { Loading, Signout, CategoriesList } from 'components';
 import { useDispatch, useRootState, useErrorBoundary } from 'hooks';
-import { fetchTransactions } from 'services/ynab.service';
+import { fetchCategories } from 'services/ynab.service';
 import { Center, SideNav, SideNavTitle } from './styles';
-import { dispatchTransactions } from 'state';
+import { dispatchCategories } from 'state';
 
 export const SideNavContainer = () => {
   const dispatch = useDispatch();
   const setErrorBoundary = useErrorBoundary();
 
   useEffect(() => {
-    fetchTransactions()
-      .then(transactions => dispatchTransactions(transactions, dispatch))
+    fetchCategories()
+      .then(categories => dispatchCategories(categories, dispatch))
       .catch(setErrorBoundary);
   }, [dispatch, setErrorBoundary]);
   
@@ -30,7 +30,7 @@ export const SideNavContainer = () => {
           <CategoriesList categories={categories} />
         )
       }
-      
+
       <Signout />
     </SideNav>  
   );
