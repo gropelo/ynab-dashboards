@@ -6,7 +6,7 @@ export const Main = styled.main`
 `;
 
 export const ScreenCenter = styled.div`
-  position: fixed;
+  position: relative;
   top: 50%;
-  left: calc(50% + 130px);
+  left: calc(50%);
 `;
