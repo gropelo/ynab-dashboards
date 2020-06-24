@@ -27,6 +27,12 @@ export interface IAccountValue {
   amount: number;
 }
 
+export interface IIncomeVsOutcomeValue {
+  group: string;
+  income: number;
+  outcome: number;
+}
+
 export type FilterPeriodType = 'ALL_TIME' | 'THIS_YEAR' | 'LAST_YEAR';
 
 export type FilterGroupType = 'MONTH' | 'YEAR';

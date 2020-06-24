@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { sumTransactionsService } from "services/sumTransactions.service";
 
 export function useSum() {
-  const { filteredTransactions } = useRootState();
+  const { filteredOutcomeTransactions } = useRootState();
   const [ sum, setSum ] = useState(0);
 
   useEffect(() => {
-    setSum(sumTransactionsService(filteredTransactions));
-  }, [filteredTransactions]);
+    setSum(sumTransactionsService(filteredOutcomeTransactions));
+  }, [filteredOutcomeTransactions]);
 
   return sum;
 }

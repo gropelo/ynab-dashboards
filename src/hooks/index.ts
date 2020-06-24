@@ -7,3 +7,4 @@ export * from './useTransactionsByPeriod';
 export * from './useRootState';
 export * from './useDispatch';
 export * from './useErrorBoundary';
+export * from './useIncomeVsOutcome';

@@ -2,6 +2,7 @@ import React from 'react'
 import { IAction, IRootState } from 'types/commons.types';
 import { filterTransactionsService } from 'services/filterTransactions.service';
 import { setFilterService } from 'services/setFilter.service';
+import { filterOutcomeTransactionsService } from 'services/filterOutcomeTransactions.service copy';
 
 export const initialState: IRootState = {
   filter: {
@@ -12,6 +13,7 @@ export const initialState: IRootState = {
   },
   rawTransactions: [],
   filteredTransactions: [],
+  filteredOutcomeTransactions: [],
   categories: [],
   statusCategories: 'LOADING',
   statusTransactions: 'LOADING'
@@ -30,13 +32,15 @@ export function rootReducer(state = initialState, action: IAction): IRootState {
         ...state,
         rawTransactions: action.payload,
         filteredTransactions: filterTransactionsService(action.payload, state.filter),
+        filteredOutcomeTransactions: filterOutcomeTransactionsService(action.payload, state.filter),
         statusTransactions: 'OK'
       }
     case 'SET_FILTER':
       return {
         ...state,
         filter: setFilterService(action.payload),
-        filteredTransactions: filterTransactionsService(state.rawTransactions, action.payload)
+        filteredTransactions: filterTransactionsService(state.rawTransactions, action.payload),
+        filteredOutcomeTransactions: filterOutcomeTransactionsService(state.rawTransactions, action.payload)
       }
     default:
       return state;

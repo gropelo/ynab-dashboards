@@ -4,12 +4,12 @@ import { sumByPeriodService } from "services/sumByPeriod.service";
 import { useRootState } from "./useRootState";
 
 export function useTransactionsByPeriod() {
-  const { filteredTransactions, filter } = useRootState();
+  const { filteredOutcomeTransactions, filter } = useRootState();
   const [ periods, setPeriods ] = useState<IGroupValue[]>([]);
 
   useEffect(() => {
-    setPeriods(sumByPeriodService(filteredTransactions, filter));
-  }, [filteredTransactions, filter]);
+    setPeriods(sumByPeriodService(filteredOutcomeTransactions, filter));
+  }, [filteredOutcomeTransactions, filter]);
 
   return periods;
 }

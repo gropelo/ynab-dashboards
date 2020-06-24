@@ -22,7 +22,7 @@ export function filterTransactionsService(transactions: ITransaction[], filter: 
       return false;
     }
 
-    if (t.deleted || t.amount >= 0 || t.transfer_account_id) {
+    if (t.deleted || t.transfer_account_id) {
       return false;
     }
 
@@ -32,6 +32,6 @@ export function filterTransactionsService(transactions: ITransaction[], filter: 
 
     return true;
   })
-  .map(t => ({ ...t, amount: Math.abs(t.amount / 1000) }))
+  .map(t => ({ ...t, amount: t.amount / 1000 }))
   .sort((t1, t2) => t1.date > t2.date ? -1 : 1);
 }

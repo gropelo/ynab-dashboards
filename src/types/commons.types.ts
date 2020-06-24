@@ -16,6 +16,7 @@ export interface IRootState {
   filter: IFilter;
   rawTransactions: ITransaction[];
   filteredTransactions: ITransaction[];
+  filteredOutcomeTransactions: ITransaction[];
   categories: ICategory[];
   statusCategories: StatusType;
   statusTransactions: StatusType;
