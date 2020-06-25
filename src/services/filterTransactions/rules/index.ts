@@ -1,6 +1,6 @@
 import { IFilterRule } from "types";
 import { currentYearRule } from "./current-year";
-import { lastYearRule } from "./last-year.rule";
+import { lastYearRule } from "./last-year";
 import { categoryRule } from "./category";
 import { deletedRule } from "./deleted";
 import { transferRule } from "./transfer.rule";
