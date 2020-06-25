@@ -1,7 +1,7 @@
 import { ITransaction, IFilter } from "types";
 import { filterOutcomeTransactionsService } from './filterOutcomeTransactions.service';
 
-jest.mock('../filterTransactions.service', () => ({ 
+jest.mock('../filterTransactions/filterTransactions.service', () => ({ 
   filterTransactionsService: (transactions: ITransaction[]) => transactions
 }));
 
