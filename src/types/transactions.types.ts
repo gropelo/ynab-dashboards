@@ -43,3 +43,7 @@ export interface IFilter {
   onlyClosedMonths: boolean;
   categoryId: string | undefined;
 }
+
+export interface IFilterRule {
+  validate: (transaction: ITransaction, filter: IFilter) => boolean
+}

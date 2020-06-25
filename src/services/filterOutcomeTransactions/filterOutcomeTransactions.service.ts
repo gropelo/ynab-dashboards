@@ -1,5 +1,5 @@
 import { ITransaction, IFilter } from "types";
-import { filterTransactionsService } from "../filterTransactions.service";
+import { filterTransactionsService } from "../filterTransactions/filterTransactions.service";
 
 export function filterOutcomeTransactionsService(transactions: ITransaction[], filter: IFilter) {
   const filteredTransactions = filterTransactionsService(transactions, filter);
