@@ -1,5 +1,5 @@
 import { IFilterRule } from "types";
-import { currentYearRule } from "./current-year.rule";
+import { currentYearRule } from "./current-year";
 import { lastYearRule } from "./last-year.rule";
 import { categoryRule } from "./category";
 import { deletedRule } from "./deleted.rule";
