@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { IGroupValue } from "types";
-import { getMaxValueService } from "services/getMaxValue.service";
+import { getMaxValueService } from "services/getMaxValue";
 import { useTransactionsByPeriod } from "./useTransactionsByPeriod";
 
 export function useMax() {
